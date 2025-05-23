@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Characters</title>
+    <link rel="stylesheet" href="styles.css">
+</html>
+<body>
+    <header>
+        <h1>Characters</h1>
+    </header>
+
+    <main>
+        <section class="controls">
+            <button id="characters">Characters</button>
+            <button id="elements">Elements</button>
+            <button id="worlds">worlds</button>
+        </section>
+        <div class="controls">
+            <input type="number" id="sortby" placeholder="Search">
+            <select id="userType" name="userType"required>
+                <option value="user"></option>
+                <option value="user">Elements</option>
+                <option value="user">ID</option>
+                <option value="user">Name</option>
+                <option value="user">Date</option>
+                <option value="user">Path</option>
+                <option value="user">Rarity</option>
+            <select>
+         </div>       
+        <section class="results">
+            <div id="loading" class="hidden">Loading data...</div>
+            <div id="error" class="hidden"></div>
+            <div id="dataContainer"></div>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>Data from <a href="https://hsr-api.vercel.app/api/v1/characters/" target="_blank">https://github.com/ajcastan0103/HSR-API?tab=readme-ov-file</a></p>
+    </footer>
+
+    <script src="script.js"></script>

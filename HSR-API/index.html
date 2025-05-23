@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data Fetching Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Honkai StarRail</h1>
+    </header>
+    
+    <main>
+        <section class="controls">
+            <button id="characters">Characters</button>
+            <button id="elements">Elements</button>
+            <input type="number" id="postId" placeholder="Enter Post ID">
+            <button id="worlds">worlds</button>
+        </section>
+        
+        <section class="results">
+            <div id="loading" class="hidden">Loading data...</div>
+            <div id="error" class="hidden"></div>
+            <div id="dataContainer"></div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Data from <a href="https://jsonplaceholder.typicode.com/" target="_blank">JSONPlaceholder API</a></p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
