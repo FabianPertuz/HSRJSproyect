@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
     const fetchPostsBtn = document.getElementById('characters');
     const fetchUsersBtn = document.getElementById('elements');
     const fetchSinglePostBtn = document.getElementById('worlds');
@@ -8,28 +7,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadingElement = document.getElementById('loading');
     const errorElement = document.getElementById('error');
     
-    // Base API URL
+
     const API_URL = 'https://hsr-api.vercel.app/api/v1/characters';
-    
-    // Helper function to show loading state
+
     function showLoading() {
         loadingElement.classList.remove('hidden');
         dataContainer.innerHTML = '';
         errorElement.classList.add('hidden');
     }
     
-    // Helper function to hide loading state
+
     function hideLoading() {
         loadingElement.classList.add('hidden');
     }
     
-    // Helper function to show error
+
     function showError(message) {
         errorElement.textContent = message;
         errorElement.classList.remove('hidden');
     }
     
-    // Function to fetch posts
     async function fetchPosts() {
         showLoading();
         try {
@@ -38,15 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const posts = await response.json();
-            displayPosts(posts.slice(0, 10)); // Display first 10 posts
+            displayPosts(posts.slice(0, 10)); 
         } catch (error) {
-            showError(`Failed to fetch posts: ${error.message}`);
+            showError(`Failed to fetch character: ${error.message}`);
         } finally {
             hideLoading();
         }
     }
     
-    // Function to fetch users
+
     async function fetchUsers() {
         showLoading();
         try {
@@ -55,15 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const users = await response.json();
-            displayUsers(users.slice(0, 5)); // Display first 5 users
+            displayUsers(users.slice(0, 5));
         } catch (error) {
-            showError(`Failed to fetch users: ${error.message}`);
+            showError(`Failed to fetch element: ${error.message}`);
         } finally {
             hideLoading();
         }
     }
     
-    // Function to fetch a single post
+
     async function fetchSinglePost() {
         const postId = postIdInput.value;
         if (!postId || isNaN(postId)) {
@@ -78,15 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const post = await response.json();
-            displayPosts([post]); // Display as array to reuse displayPosts
+            displayPosts([post]); 
         } catch (error) {
             showError(`Failed to fetch post: ${error.message}`);
         } finally {
             hideLoading();
         }
     }
-    
-    // Function to display posts
+
     function displayPosts(posts) {
         dataContainer.innerHTML = posts.map(post => `
             <div class="post">
@@ -97,8 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `).join('');
     }
-    
-    // Function to display users
+
     function displayUsers(users) {
         dataContainer.innerHTML = users.map(user => `
             <div class="user">
@@ -110,8 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `).join('');
     }
-    
-    // Event listeners
+ 
     fetchPostsBtn.addEventListener('click', fetchPosts);
     fetchUsersBtn.addEventListener('click', fetchUsers);
     fetchSinglePostBtn.addEventListener('click', fetchSinglePost);
